@@ -10,7 +10,6 @@ public class Directory
 			.ForEach(f => { f.Delete(); });
 
 		directory.EnumerateDirectories()
-			.Where(d => d.LastAccessTime < DateTime.Now.AddMonths(retentionLengthInMonths))
 			.ToList()
 			.ForEach(d => { DeleteDirectory(d, retentionLengthInMonths, false); });
 

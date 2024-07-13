@@ -5,13 +5,13 @@
 		public static bool Move(string sourceFile, string destinationFolder)
 		{
 			bool isFileMoved = false;
-			string destinationFile = $@"{destinationFolder}\{Path.GetFileName(sourceFile)}";
-
+			string destinationFileFullPath = $@"{destinationFolder}\{Path.GetFileName(sourceFile)}";
+			
 			Directory.CreateDirectory(destinationFolder);
 
-			if (!System.IO.File.Exists(destinationFolder))
+			if (!System.IO.File.Exists(destinationFileFullPath))
 			{
-				System.IO.File.Move(sourceFile, destinationFile);
+				System.IO.File.Move(sourceFile, destinationFileFullPath);
 				isFileMoved = true;
 			}
 
