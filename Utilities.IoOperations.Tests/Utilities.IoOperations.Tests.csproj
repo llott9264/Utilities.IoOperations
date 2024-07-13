@@ -25,10 +25,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DirectoryFolder\" />
+    <Folder Include="DirectoryFolder\DeleteDirectory\DirectoryToDelete\" />
+    <Folder Include="DirectoryFolder\DeleteDirectory\DirectoryNotToDelete\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="DirectoryFolder\DeleteDirectory\DirectoryToDelete\FileToDelete.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DirectoryFolder\DeleteDirectory\DirectoryNotToDelete\FileNotToDelete.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DirectoryFolder\DeleteDirectory\DirectoryNotToDelete\FileToDelete.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="DirectoryFolder\MoveFile.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
