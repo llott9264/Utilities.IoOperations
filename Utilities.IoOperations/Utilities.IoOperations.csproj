@@ -4,6 +4,10 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Copyright>2024</Copyright>
+    <Description>A powerful and fast library that provides IO Operations for any .Net applications.</Description>
+    <Authors>Lee Lott</Authors>
+    <Title>Utilities.IoOperations</Title>
   </PropertyGroup>
 
 </Project>
