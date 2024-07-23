@@ -20,6 +20,13 @@ public class Directory
 			directory.Delete();
 		}
 	}
+
+	public static void DeleteFilesInFolder(DirectoryInfo directory)
+	{
+		directory.EnumerateFiles()
+			.ToList()
+			.ForEach(f => f.Delete());
+	}
 	
 	public static void CreateDirectory(string folder)
 	{
