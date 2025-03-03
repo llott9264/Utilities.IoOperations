@@ -17,6 +17,7 @@ public class FileTests
 		const string destinationFolder = $@"{sourceFolder}\MoveDirectory\";
 		const string destinationFilePath = $@"{destinationFolder}\{sourceFile}";
 
+		if (!System.IO.Directory.Exists(destinationFolder)) System.IO.Directory.CreateDirectory(destinationFolder);
 		if (System.IO.File.Exists(destinationFilePath)) System.IO.File.Delete(destinationFilePath);
 
 		Mock<IMediator> mock = new();
@@ -31,5 +32,7 @@ public class FileTests
 		//Assert
 		Assert.True(isMoved);
 		Assert.True(System.IO.File.Exists(destinationFilePath));
+		mock.Verify(m => m.Send(It.IsAny<CreateDirectoryCommand>(), It.IsAny<CancellationToken>()), Times.Once);
+		mock.VerifyNoOtherCalls();
 	}
 }
