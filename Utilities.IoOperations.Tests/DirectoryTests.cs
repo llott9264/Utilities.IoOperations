@@ -1,3 +1,7 @@
+using Utilities.IoOperations.MediatR.Directory.CleanUpDirectory;
+using Utilities.IoOperations.MediatR.Directory.CreateDirectory;
+using Utilities.IoOperations.MediatR.Directory.DeleteFiles;
+
 namespace Utilities.IoOperations.Tests
 {
 	public class DirectoryTests
@@ -8,10 +12,12 @@ namespace Utilities.IoOperations.Tests
 			//Arrange
 			const string directoryPath = @"DirectoryFolder\NewDirectory\";
 			if (System.IO.Directory.Exists(directoryPath)) System.IO.Directory.Delete(directoryPath);
+			CreateDirectoryCommand request = new(directoryPath);
+			CreateDirectoryCommandHandler handler = new();
 
 			//Act
-			Utilities.IoOperations.Directory.CreateDirectory(directoryPath);
-
+			handler.Handle(request, CancellationToken.None);
+			
 			//Assert
 			Assert.True(System.IO.Directory.Exists(directoryPath));
 		}
@@ -39,9 +45,12 @@ namespace Utilities.IoOperations.Tests
 			System.IO.Directory.SetLastAccessTime(notDeletedFolderPath, notDeleteLastAccessDateTime);
 			System.IO.File.SetLastAccessTime(notDeletedFolderFileToDelete, deleteLastAccessDateTime);
 			System.IO.File.SetLastAccessTime(notDeletedFile, notDeleteLastAccessDateTime);
-			
+
+			CleanUpDirectoryCommand request = new(di, fileRetentionPeriodInMonths, true);
+			CleanUpDirectoryCommandHandler handler = new();
+
 			//Act
-			Directory.DeleteDirectory(di, fileRetentionPeriodInMonths, true);
+			handler.Handle(request, CancellationToken.None);
 
 			//Assert
 			Assert.True(!System.IO.Directory.Exists(deletedFolderPath));
@@ -52,6 +61,26 @@ namespace Utilities.IoOperations.Tests
 			Assert.True(System.IO.File.Exists(notDeletedFile));
 
 			Assert.True(System.IO.Directory.Exists(deleteDirectoryPath));
+		}
+
+		[Fact]
+		public void DeleteFiles_Returns_True()
+		{
+			//Arrange
+			const string deleteFilesDirectoryPath = @"DirectoryFolder\DeleteFilesDirectory\";
+			DirectoryInfo di = new(deleteFilesDirectoryPath);
+
+			DeleteFilesCommand request = new(di);
+			DeleteFilesCommandHandler handler = new();
+
+			const string fileToDelete = $@"{deleteFilesDirectoryPath}\FileToDelete.txt";
+
+			//Act
+			handler.Handle(request, CancellationToken.None);
+
+			//Assert
+			Assert.False(System.IO.File.Exists(fileToDelete));
+			Assert.True(System.IO.Directory.Exists(deleteFilesDirectoryPath));
 		}
 	}
 }
