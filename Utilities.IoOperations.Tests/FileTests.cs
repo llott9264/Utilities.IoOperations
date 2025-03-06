@@ -42,7 +42,7 @@ public class FileTests
 	{
 		//Arrange
 		const string sourceFolder = @"DirectoryFolder\";
-		const string sourceFile = "MoveFile.txt";
+		const string sourceFile = "CopyFile.txt";
 		const string sourceFilePath = $@"{sourceFolder}\{sourceFile}";
 		const string destinationFolder = $@"{sourceFolder}\CopyDirectory\";
 		const string destinationFilePath = $@"{destinationFolder}\{sourceFile}";
