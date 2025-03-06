@@ -44,6 +44,9 @@
     <None Update="DirectoryFolder\DeleteFilesDirectory\FileToDelete.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="DirectoryFolder\CopyFile.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="DirectoryFolder\MoveFile.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
