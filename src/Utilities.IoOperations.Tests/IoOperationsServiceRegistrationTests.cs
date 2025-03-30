@@ -11,7 +11,7 @@ namespace Utilities.IoOperations.Tests;
 public class IoOperationsServiceRegistrationTests
 {
 	[Fact]
-	public void AddAuthenticationServices_RegistersAllServices_CorrectlyResolvesTypes()
+	public void AddIoOperationsServices_RegistersAllServices_CorrectlyResolvesTypes()
 	{
 		// Arrange
 		ServiceCollection services = new();
@@ -28,7 +28,7 @@ public class IoOperationsServiceRegistrationTests
 	}
 
 	[Fact]
-	public void AddAuthenticationServices_ReturnsServiceCollection()
+	public void AddIoOperationsServices_ReturnsServiceCollection()
 	{
 		// Arrange
 		ServiceCollection services = new();
@@ -41,7 +41,7 @@ public class IoOperationsServiceRegistrationTests
 	}
 
 	[Fact]
-	public void AddApplicationServices_ScopedLifetime_VerifyInstanceWithinScope()
+	public void AddIoOperationsServices_ScopedLifetime_VerifyInstanceWithinScope()
 	{
 		// Arrange
 		ServiceCollection services = new();
@@ -59,7 +59,7 @@ public class IoOperationsServiceRegistrationTests
 	}
 
 	[Fact]
-	public void AddApplicationServices_ScopedLifetime_VerifyInstancesAcrossScopes()
+	public void AddIoOperationsServices_ScopedLifetime_VerifyInstancesAcrossScopes()
 	{
 		// Arrange
 		ServiceCollection services = new();
@@ -85,7 +85,7 @@ public class IoOperationsServiceRegistrationTests
 	}
 
 	[Fact]
-	public void AddApplicationServices_CleanUpDirectoryHandler_VerifyMediatorHandlerExists()
+	public void AddIoOperationsServices_CleanUpDirectoryHandler_VerifyMediatorHandlerExists()
 	{
 		// Arrange
 		ServiceCollection services = new();
@@ -103,7 +103,7 @@ public class IoOperationsServiceRegistrationTests
 	}
 
 	[Fact]
-	public void AddApplicationServices_CreateDirectoryCommandHandler_VerifyMediatorHandlerExists()
+	public void AddIoOperationsServices_CreateDirectoryCommandHandler_VerifyMediatorHandlerExists()
 	{
 		// Arrange
 		ServiceCollection services = new();
@@ -121,7 +121,7 @@ public class IoOperationsServiceRegistrationTests
 	}
 
 	[Fact]
-	public void AddApplicationServices_DeleteFilesCommandHandler_VerifyMediatorHandlerExists()
+	public void AddIoOperationsServices_DeleteFilesCommandHandler_VerifyMediatorHandlerExists()
 	{
 		// Arrange
 		ServiceCollection services = new();
@@ -139,7 +139,7 @@ public class IoOperationsServiceRegistrationTests
 	}
 
 	[Fact]
-	public void AddApplicationServices_MoveFileCommandHandler_VerifyMediatorHandlerExists()
+	public void AddIoOperationsServices_MoveFileCommandHandler_VerifyMediatorHandlerExists()
 	{
 		// Arrange
 		ServiceCollection services = new();
@@ -157,7 +157,7 @@ public class IoOperationsServiceRegistrationTests
 	}
 
 	[Fact]
-	public void AddApplicationServices_CopyFileCommandHandler_VerifyMediatorHandlerExists()
+	public void AddIoOperationsServices_CopyFileCommandHandler_VerifyMediatorHandlerExists()
 	{
 		// Arrange
 		ServiceCollection services = new();
